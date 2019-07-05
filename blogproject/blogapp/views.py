@@ -15,4 +15,4 @@ def home(request):
 def detail(request, blog_id): # request만으로는 정보 부족. 몇 번 객체를 다룰 것인지 정보 필요.
     blog_detail = get_object_or_404(Blog, pk = blog_id)
     # pk = primary key. 객체들의 이름표, 구분자, 데이터의 대표값
-    return render(request, "detail.html", {'blog' : blog_detail})
+    return render(request, "detail.html", {'details' : blog_detail})

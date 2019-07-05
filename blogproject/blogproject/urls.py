@@ -19,6 +19,6 @@ import blogapp.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', blogapp.views.home, name = "home"),
-    path('blog/<int:blog_id>', blog.views.detail, name = "detail"),
+    path('blog/<int:blog_id>', blogapp.views.detail, name = "detail"),
     # 사이트 이름/blog/정수 형태로 url을 설계하겠다
 ]
