@@ -1,19 +1,40 @@
+{% extends 'base.html' %}
+  {% block contents %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-  </head>
+<head>
+  <style>
+    .card{
+      border: 1px solid red;
+      margin-right: 3%;
+    }
+    .container{
+      display: flex;
+      margin-top: 5%;
+    }
+  </style>
+</head>
   <body>
-    <img src="{% static '1.jpg' %}" height="400" />
-    {% for portfolio in portfolios.all %}
-    <h1>{{ portfolio.title }}</h1>
-    <img src="{{ portfolio.image.url }}" height="300" />
-    <p>{{ portfolio.description }}</p>
-    <br />
+    <div class = "container">
+      {% for portfolio in portfolios.all %}
+    <div class="card" style="width: 18rem;">
+      <img src="{% static '1.jpg' %}" class="card-img-top" height="200" />
+      <div class="card-body">
+        <h5 class="card-title">static file</h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="{{ portfolio.image.url }}" class="card-img-top" height="200" />
+      <div class="card-body">
+        <h5 class="card-title">{{ portfolio.title }}</h5>
+        <p class="card-text">{{ portfolio.description }}</p>
+      </div>
+    </div>
     {% endfor %}
+    </div>
   </body>
 </html>
+{% endblock %}
