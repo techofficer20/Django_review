@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Blog # models.py에 있는 Blog 객체를 받아와야 함.
 # Create your views here.
 
@@ -11,3 +11,8 @@ def home(request):
     # blogs = Blog.objects
     # blogs.all() = Blog.objects.all()
     return render(request, "home.html", {'blogs' : blogs})
+
+def detail(request, blog_id): # request만으로는 정보 부족. 몇 번 객체를 다룰 것인지 정보 필요.
+    blog_detail = get_object_or_404(Blog, pk = blog_id)
+    # pk = primary key. 객체들의 이름표, 구분자, 데이터의 대표값
+    return render(request, "detail.html", {'blog' : blog_detail})
