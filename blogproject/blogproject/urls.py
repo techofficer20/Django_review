@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import blogapp.views
+import portfolioapp.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', blogapp.views.home, name = "home"),
@@ -23,4 +24,5 @@ urlpatterns = [
     # 사이트 이름/blog/정수 형태로 url을 설계하겠다
     path('blog/new', blogapp.views.new, name = "new"),
     path('blog/create', blogapp.views.create, name = "create"),
+    path('portfolio/', portfolioapp.views.portfolio, name = "portfolio"),
 ]
